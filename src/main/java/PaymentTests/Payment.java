@@ -1,3 +1,5 @@
+package PaymentTests;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -33,7 +35,7 @@ public class Payment {
     }
     @AfterMethod
     public void CloseDriver(){
-//        driver.close();
+        driver.close();
 
     }
 
@@ -51,7 +53,7 @@ public class Payment {
         driver.findElement(ALL_CATEGORIES).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
-        driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
+       waitElementIsVisible( driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT)).click();
         driver.findElement(BUTTON_ADD_TO_CART).click();
         WebElement element = driver.findElement( By.xpath("//span[@class='product-d__counter-left']"));
         String OldCount = element.getText();
@@ -79,18 +81,30 @@ public class Payment {
         driver.findElement(BUTTON_SUBMIT_CARD).click();
         System.out.println("ДО ПРОЦЕССА ОПЛАТЫ ТЕСТ ДОШЕЛ УЖЕ ЖИТЬ ЛЕГЧЕ");
         try {
-            driver.findElement(BUTTON_CAMPANYA_1).click();
+
+            for (int i = 3; i > 0; i--) {
+
+                Thread.sleep(1000);
+            }driver.findElement(BUTTON_CAMPANYA_1).click();
         }catch (NoSuchElementException e){
             System.out.println("BUTTON_CAMPANYA_1 не нашелся");
         }
 
         try {
-            driver.findElement(BUTTON_SUBMIT_CARD).click();
+
+            for (int i = 3; i > 0; i--) {
+
+                Thread.sleep(1000);
+            } driver.findElement(BUTTON_SUBMIT_CARD).click();
         }catch (NoSuchElementException e){
             System.out.println("BUTTON_SUBMIT_CARD не нашелся");
         }
 
         try {
+            for (int i = 3; i > 0; i--) {
+
+                Thread.sleep(1000);
+            }
            waitElementIsVisible(driver.findElement(BUTTON_YES_ACCEPT_PAY));
            driver.findElement(BUTTON_YES_ACCEPT_PAY).click();
         }

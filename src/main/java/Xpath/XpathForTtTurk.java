@@ -1,3 +1,5 @@
+package Xpath;
+
 import org.openqa.selenium.By;
 
 public class XpathForTtTurk {
@@ -69,17 +71,45 @@ public class XpathForTtTurk {
     public final static By BUTTON_YEAR_ON_CARD = By.xpath("//div//select[1]//option[@value='26']");
     public final static By INPUT_CVC_CODE = By.xpath("//div//div//input[@id='cv2']");
     public final static By BUTTON_SUBMIT_CARD = By.xpath("//div//div//input[@id='btnSbmt']");
-    public final static By BUTTON_YES_ACCEPT_PAY = By.xpath("//form//button[@id='yes']");
+    public final static By BUTTON_YES_ACCEPT_PAY = By.xpath("//button[@id='yes']");
     public final static By BUTTON_CAMPANYA_1 = By.xpath("//div[@class='i2mp-row']//div//input[@value='000001']");
-    public final static By INFO_YOUR_ORDER_SUCCESS = By.xpath("//div//h2[@class='modal__title t-center orders__success-title']");
+    public final static By INFO_YOUR_ORDER_SUCCESS = By.xpath("//h2[contains(text(),'Siparişiniz için teşekkür ederiz')]");
     public final static By INFO_YOUR_ORDER_UNSUCCESSFUL = By.xpath("//div//h2[@class='modal__title t-center modal__title--red']");
     public final static By CATEGORY_HOME_IMPROVEMENT = By.xpath("//div[@class='nav__categories nav__categories--active nav_categories--landing']//span[contains(text(),'Домогосподарство')]");
-    public final static By CATEGORY_PAINTING = By.xpath("//div[@class]//span[contains(text(),'Живопис')]");
-    public final static By CATEGORY_WALLPAPERS = By.xpath("//div[@class]//span[contains(text(),'Шпалери')]");
-    public final static By ITEM_DISCOUNT = By.xpath("//div//ul//li//a[@href='/ua/product/8c56276f-9419-4302-a89f-5c324cd429b5?skuId=981661']");
-    public final static By ITEM_WITH_DISCOUNT_WITH_WHOLESALE = By.xpath("//div//ul//li//a[@href='/ua/product/7ffaabef-8a51-46a6-a19c-7178d5b08c15?skuId=981663']");
-    public final static By ITEM_WITH_WHOLESALE = By.xpath("//div//ul//li//a[@href='/ua/product/502574a6-42d6-4ef7-8389-e0b90cfc5ab3?skuId=981662']");
-    public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT =By.xpath("//div//ul//li//a[@href='/ua/product/03d113d1-ffa2-4cf0-ab5b-28efc06800eb?skuId=981664']");
+    public final static By CATEGORY_PAINTING = By.xpath("//div//a[@href='/ua/categories/painting-supplies-and-wall-treatments-1275']");
+    public final static By CATEGORY_WALLPAPERS = By.xpath("//div[@class]//a[@href='/ua/categories/wallpapers-26925']");
+    public final static By CATEGORY_PAINTING_TR = By.xpath("//div//a[@href='/categories/painting-supplies-and-wall-treatments-1275']");
+    public final static By CATEGORY_WALLPAPERS_TR = By.xpath("//div[@class]//a[@href='/categories/wallpapers-26925']");
+
+    public final static By ITEM_DISCOUNT = By.xpath("//div//ul//li[1]//a//div[@class='p-cards__img-wrap']");
+    public final static By ITEM_WITH_DISCOUNT_WITH_WHOLESALE = By.xpath("//div//ul//li[2]//a//div[@class='p-cards__img-wrap']");
+
+    public final static By ITEM_WITH_WHOLESALE = By.xpath("//div//ul//li[2]//a//div[@class='p-cards__img-wrap']");
+    public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT =By.xpath("//div//ul//li[4]//a[@class='p-cards__link p-cards__detail-link']");
+
+    public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT_TR =By.xpath("//div//ul//li//a[@href='/product/03d113d1-ffa2-4cf0-ab5b-28efc06800eb?skuId=981664']");
+public final static By SAVED_SETTINGS = By.xpath("//div//button[@class='button button--s-small button--c-primary button--m-r-10']");
+public final static By AMOUNT_ITEMS_IN_STOCK = By.xpath("//span[@class='product-d__counter-left']");
+public final static By INFO_ALERT_YOU_DONT_HAVE_ADDRESS = By.xpath("//div[@class='alert__text']");
+public final static By ALL_CATEGORIES = By.xpath("//div//a[@class='nav__categories-header-link']");
+public final static By MODAL_WRAP_SIGN_IN = By.xpath("//div[@class='modal__content-wrap']");
+public final static By INPUT_AMOUNT_ITEMS_IN_STOCK = By.xpath("//input[@class='btn__counter-text']");
+public final static By INFO_ALERT_YOR_ORDER_TOO_MUCH = By.xpath("//div[@class='alert__text']");
+public final static By DOLLAR_USD =By.xpath("//span[contains(text(),'USD')]");
+public final static By LOCALIZATION = By.xpath("//a//span[@class='header__top-i18n-toggler']");
+public final static By SIGN_DOLLAR_$_IN_PRICE =By.xpath("//div[@class=\"product-d__price-sub-wrap\"]//span//span[contains(text(),'$')]");
+public final static By WALLPAPERS_BORDER = By.xpath("//li//a[@href=\"/ua/categories/wallpaper-borders-26940\"]");
+public final static By ITEM_LIRA = By.xpath("//div//div//ul//li//a[@href]//div[@class='p-cards__img-wrap']");
+public final static By ICON_BUTTON_ORDERS = By.xpath("//li//span[contains(text(),'Замовлення')]");
+public final static By INFO_SHOP_CART = By.xpath("//div[@class='shop__cart']");
+
+
+
+
+
+
+
+
 
 
 }
