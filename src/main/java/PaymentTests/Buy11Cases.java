@@ -7,10 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
 import java.time.Duration;
+import java.util.List;
 
+import static Xpath.XpathForBasket.FULL_ITEMS_ON_PAGE;
 import static Xpath.XpathForTtTurk.*;
 
 public class Buy11Cases {
@@ -25,7 +29,7 @@ public class Buy11Cases {
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
         //Goto guru99 site
-        driver.get("https://k8s-staging.tt-turk.com/ua");
+        driver.get("https://staging.tt-turk.com/ua");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
@@ -43,10 +47,8 @@ public class Buy11Cases {
     public void EmptyItem() throws InterruptedException {
 
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
         driver.findElement(PASSWORD_INPUT).sendKeys("goblin27");
         driver.findElement(BUTTON_SIGN_IN_TT_TURK).click();
@@ -75,17 +77,14 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-
-
         }
+
+
     @Test
     public void WholesaleItem() throws InterruptedException {
-       ;
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
         driver.findElement(PASSWORD_INPUT).sendKeys("goblin27");
         driver.findElement(BUTTON_SIGN_IN_TT_TURK).click();
@@ -130,6 +129,7 @@ public class Buy11Cases {
         driver.findElement(ALL_CATEGORIES).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
+       
         driver.findElement(ITEM_DISCOUNT).click();
         driver.findElement(BUTTON_ADD_TO_CART).click();
         driver.findElement(BUTTON_GO_TO_CART).click();
@@ -152,11 +152,7 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-        try {
-            driver.findElement(BUTTON_CAMPANYA_1).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_CAMPANYA_1 не нашелся");
-        }
+
     }
 
 
@@ -202,12 +198,10 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-        try {
-            driver.findElement(BUTTON_CAMPANYA_1).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_CAMPANYA_1 не нашелся");
-        }
+
     }
+
+
     @Test
     public void EmptyAndDiscountItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
@@ -250,6 +244,8 @@ public class Buy11Cases {
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
     }
+
+
 
     @Test
     public void addToBasketEmptyAndDiscountAndDiscountWithWholesaleItems() throws InterruptedException {
@@ -299,53 +295,14 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-        try {
-            driver.findElement(BUTTON_CAMPANYA_1).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_CAMPANYA_1 не нашелся");
-        }
 
-        try {
-            driver.findElement(BUTTON_SUBMIT_CARD).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_SUBMIT_CARD не нашелся");
-        }
-
-        for (int i = 12; i > 0; i--) {
-
-            Thread.sleep(1000);
-        }
-        try {
-            driver.findElement(BUTTON_YES_ACCEPT_PAY).click();
-        }
-        catch (NoSuchElementException e) {
-            System.out.println("No such BUTTON_CAMPANYA_1 ");
-        }
-        for (int i = 12; i > 0; i--) {
-
-            Thread.sleep(1000);
-        }
-        try {
-            driver.findElement(INFO_YOUR_ORDER_SUCCESS);
-            System.out.println("ВАША ПОКУПКА ОПЛАЧЕНА ПОЗДРАВЛЯЕМ");
-        }
-        catch (NoSuchElementException e) {
-            System.out.println(" НЕ ПОЛУЧИЛАСЬ  ПЕРВАЯ ПОПЫТКА ");
-        }
-        try {
-            driver.findElement(INFO_YOUR_ORDER_UNSUCCESSFUL);
-            System.out.println("ПРОИЗОШЛА ОШИБКА ПРИ ОПЛАТЕ");
-        }
-        catch (NoSuchElementException e) {
-            System.out.println(" ПОКУПКА СКОРЕЕ ВСЕГО ПОЛУЧИЛАСЬ ");
-        }
-//        driver.close();
     }
+
+
 
     @Test
     public void addToBasketFullItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
@@ -354,33 +311,30 @@ public class Buy11Cases {
         driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
-        driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
-        driver.findElement(BUTTON_ADD_TO_CART).click();
-        driver.findElement(BUTTON_GO_TO_CART).click();
-        driver.findElement(MAIN_LOGO).click();
-        driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
-        driver.findElement(CATEGORY_PAINTING).click();
-        driver.findElement(CATEGORY_WALLPAPERS).click();
-        driver.findElement(ITEM_DISCOUNT).click();
-        driver.findElement(BUTTON_ADD_TO_CART).click();
-        driver.findElement(BUTTON_GO_TO_CART).click();
-        driver.findElement(MAIN_LOGO).click();
-        driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
-        driver.findElement(CATEGORY_PAINTING).click();
-        driver.findElement(CATEGORY_WALLPAPERS).click();
-        driver.findElement(ITEM_WITH_DISCOUNT_WITH_WHOLESALE).click();
-        driver.findElement(BUTTON_ADD_TO_CART).click();
-        driver.findElement(BUTTON_GO_TO_CART).click();
-        driver.findElement(MAIN_LOGO).click();
-        driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
-        driver.findElement(CATEGORY_PAINTING).click();
-        driver.findElement(CATEGORY_WALLPAPERS).click();
-        driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
-        driver.findElement(BUTTON_ADD_TO_CART).click();
-        driver.findElement(BUTTON_CHECKOUT).click();
-        System.out.println("ЗАходит");
-        String shopCartPage = driver.getCurrentUrl();
-        System.out.println(shopCartPage);
+
+        WebElement element = driver.findElement(By.xpath("//ul[@class='product__list category-detail__result-list']"));
+        int countItems = driver.findElements(FULL_ITEMS_ON_PAGE).size();
+        System.out.println(countItems);
+        List<WebElement> elementName = driver.findElements(By.xpath("//ul[@class='product__list category-detail__result-list']//li"));
+        for (int j = 0; j < elementName.size(); j++) {
+            elementName = driver.findElements(By.xpath("//ul[@class='product__list category-detail__result-list']//li"));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.elementToBeClickable(elementName.get(j)));
+            elementName.get(j).click();
+
+            for (int i = 3; i > 0; i--) {
+                Thread.sleep(1000);
+            }
+            System.out.println(j + "  добавлен");
+            driver.findElement(BUTTON_ADD_TO_CART).click();
+            for (int i = 2; i > 0; i--) {
+                Thread.sleep(1000);
+            }
+            driver.navigate().to("https://staging.tt-turk.com/categories/wallpapers-26925");
+            for (int i = 2; i > 0; i--) {
+                Thread.sleep(1000);
+            }
+        }
         driver.findElement(BUTTON_LOGO_GO_TO_CART).click();
         String inCart = driver.getCurrentUrl();
         System.out.println(inCart);
@@ -397,13 +351,13 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-
     }
+
+
 
     @Test
     public void addToBasketDiscountAndDiscountWithWholesaleItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
@@ -442,15 +396,12 @@ public class Buy11Cases {
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-
-
 //        driver.close();
     }
 
     @Test
     public void addToBasketDiscountAndWholesaleItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
@@ -489,6 +440,8 @@ public class Buy11Cases {
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
     }
+
+
     @Test
     public void addToBasketEmptyAndWholesaleItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
@@ -501,6 +454,7 @@ public class Buy11Cases {
         driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
+       
         driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
         driver.findElement(BUTTON_ADD_TO_CART).click();
         driver.findElement(BUTTON_GO_TO_CART).click();
@@ -508,6 +462,8 @@ public class Buy11Cases {
         driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
+       
+
         driver.findElement(ITEM_WITH_WHOLESALE).click();
         driver.findElement(BUTTON_ADD_TO_CART).click();
         driver.findElement(BUTTON_GO_TO_CART).click();
@@ -537,7 +493,6 @@ public class Buy11Cases {
     @Test
     public void addToBasketEmptyAndWholesaleDiscountItems() throws InterruptedException {
         driver.findElement(SAVED_SETTINGS).click();
-
         driver.findElement(AVATAR_LOGO).click();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");

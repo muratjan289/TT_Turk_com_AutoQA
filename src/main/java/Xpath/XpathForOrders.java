@@ -18,4 +18,6 @@ public class XpathForOrders {
     public final static By PAID_ORDERED_UA = By.xpath("//div[@class='orders__col--2 orders__sub-item-status']//span[contains(text(),'Оплачені')]");
     public final static By BUTTON_THE_NEXT_PAGE_ORDERS = By.xpath("//span[@class='pagination__control-word']");
 
+
+
 }

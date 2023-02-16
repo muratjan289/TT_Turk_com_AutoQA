@@ -3,10 +3,11 @@
 <suite name="TestSuite" thread-count="1" parallel="methods" >
     <test name="testGuru">
         <classes>
-            <class name="PaymentTests.Payment">
-            </class>
+            <class name="PaymentTests.Payment"></class>
             <class name="PaymentTests.Buy11Cases"></class>
             <class name="Orders.Orders"></class>
+            <class name="Bascet.Bascet"></class>
+            <class name="Registration.Registration"></class>
 
 
 

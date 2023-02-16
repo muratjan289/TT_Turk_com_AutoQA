@@ -5,23 +5,19 @@ import org.openqa.selenium.By;
 public class XpathForTtTurk {
 
 
-    public final static By BUTTON_LANGUAGE_AND_CURRENCY = By.xpath("//div[@class='site-container header__wrapper']//span[@class='header__top-i18n-toggler']");
-    public final static By BUTTON_SELECT_LANGUAGE = By.xpath("//div[@class='site-container header__wrapper']//div[@class='v-select tt-select dropdown__ico popup--i18n__select-item vs--single vs--unsearchable']//div[@class='vs__selected-options']//span[contains(text(),'Українська')]");
-
     public final static By BANNER = By.xpath("//div[@class='site-container']//div[@class='hero__slider-wrapper']");
     public final static By CHAPTER_HOME_IMPROVMENT_RU = By.xpath("//div[@class='site-container']//span[text()='Обустройство дома']");
 
-    public final static By CATEGORY_HARDWARE_RU = By.xpath("//div[@class='site-container']//a[@href='/ru/categories/hardware-1270']");
-    public final static By SORT_PRICE_DESCENDING_RU = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Цена по убыванию')]");
-    public final static By SORT_BY_DATE_ASCENDING_RU = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Новые поступления')]");
-    public final static By SORT_BY_DATE_DESCENDING_RU = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Ранее поступившие')]");
-    public final static By SORT_PRICE_ASCENDING_RU = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Цена по возрастанию')]");
+    public final static By CATEGORY_HARDWARE_UA = By.xpath("//div[@class='site-container']//a[@href='/ru/categories/hardware-1270']");
+    public final static By SORT_PRICE_DESCENDING_UA = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Зниження ціни')]");
+    public final static By SORT_BY_DATE_ASCENDING_UA = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Нові надходження')]");
+    public final static By SORT_BY_DATE_DESCENDING_UA = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Раніше надійшли')]");
+    public final static By SORT_PRICE_ASCENDING_UA = By.xpath("//ul[@class='filter-category__inner']//button[contains(text(),'Ціна за зростанням')]");
     public final static By MAIN_LOGO = By.xpath("//div[@class='header__logo']");
     public final static By AVATAR_LOGO = By.xpath("//div[@class='header__user-nav']//ul//li[@class='header__user-nav-item header__user-nav-item--log-in header__user-nav-item--noti']");
     public final static By LOGIN_INPUT = By.xpath("//div[@class='tab__content tab__content--current']//input[@type='text']");
     public final static By PASSWORD_INPUT = By.xpath("//div[@class='tab__content tab__content--current']//div//input[@class='input__input']");
     public final static By BUTTON_SIGN_IN_TT_TURK = By.xpath("//div[@class='tab__content tab__content--current']//button[@class='button button--c-primary button--s-medium modal__btn']");
-
     public final static By REGISTRATION_INPUT = By.xpath("//div[@class='modal__content-wrap']//button[@class='tab__btn']");
     public final static By NEW_LOGIN_INPUT = By.xpath("//div[@class='modal__content-wrap']//input[@placeholder='Електронна пошта']");
     public final static By NEW_PASSWORD_INPUT = By.xpath("//div[@class='modal__content-wrap']//input[@placeholder='Пароль']");
@@ -33,7 +29,9 @@ public class XpathForTtTurk {
 
     public final static By BUTTON_SELECT_FIRST_PRODUCT = By.xpath("//div[@class='scroll-list__wrap product__list-wrap']//ul//li//a[1]");
     public final static By BUTTON_ADD_TO_CART = By.xpath("//div[@class='product-d__shop']//div[@class='product-d__buy-btn-wrap']");
-    public final static By INFO_HOW_PRODUCTS_IN_BASKET = By.xpath("//a[@class='header__user-nav-link']//span[contains(text(),'3')]");
+    public final static By BUTTON_BUY_RIGHT_NOW = By.xpath("//div[@class='product-d__shop']//a[@class='button button--s-small product-d__buy-now-btn button--c-secondary']");
+
+    public final static By INFO_HOW_PRODUCTS_IN_BASKET = By.xpath("//span[@class='header__user-nav-ico--counter']");
     public final static By BUTTON_GO_TO_CART = By.xpath("//div[@class='product-d__shop']//div[@class='product-d__buy-btn-wrap']//span[2]");
     public final static By BUTTON_MY_ACCOUNT = By.xpath("//li[@class='user__popup-item']//div[@class='user__popup-item-link-wrap']//a[@href]");
     public  final static By INPUT_NAME = By.xpath("//div[@class='site-container']//div[@class]//div//input[@name='receiverFullName']");
@@ -46,9 +44,8 @@ public class XpathForTtTurk {
     public final static By ADD_NEW_DELIVERY_ADDRESS = By.xpath("//div[@class='checkout__section-wrap']//a[@class='button button--c-secondary button--s-small']");
 
     public final static By BUTTON_CHECKOUT = By.xpath("//div[@class='shop__container']//a[@class='button button--s-large button--c-primary shop__order-btn']");
+//    public final static By BUTTON_CHECKOUT = By.name("//a[@data-name=\"checkout-button\"]");
 
-    public final static By probka = By.xpath("//div[@class='v-select vs--single vs--searchable input__input input__v-search input__input--valid']//span[contains(text(),'Ukraine')]");
-    public final static By opuskaika = By.xpath("//form[@class='checkout__form']//div[@id='vs14__combobox']//div[@class='vs__selected-options']");
 
     public final static By BUTTON_CHECKOUT_FINALLY = By.xpath("//a[@class='button button--s-large button--c-primary']");
 
@@ -80,12 +77,11 @@ public class XpathForTtTurk {
     public final static By CATEGORY_WALLPAPERS = By.xpath("//div[@class]//a[@href='/ua/categories/wallpapers-26925']");
     public final static By CATEGORY_PAINTING_TR = By.xpath("//div//a[@href='/categories/painting-supplies-and-wall-treatments-1275']");
     public final static By CATEGORY_WALLPAPERS_TR = By.xpath("//div[@class]//a[@href='/categories/wallpapers-26925']");
-
-    public final static By ITEM_DISCOUNT = By.xpath("//div//ul//li[1]//a//div[@class='p-cards__img-wrap']");
+    public final static By ITEM_DISCOUNT = By.xpath("//div//ul//li[4]//a//div[@class='p-cards__img-wrap']");
     public final static By ITEM_WITH_DISCOUNT_WITH_WHOLESALE = By.xpath("//div//ul//li[2]//a//div[@class='p-cards__img-wrap']");
 
-    public final static By ITEM_WITH_WHOLESALE = By.xpath("//div//ul//li[2]//a//div[@class='p-cards__img-wrap']");
-    public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT =By.xpath("//div//ul//li[4]//a[@class='p-cards__link p-cards__detail-link']");
+    public final static By ITEM_WITH_WHOLESALE = By.xpath("//div//ul//li[3]//a//div[@class='p-cards__img-wrap']");
+    public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT =By.xpath("//div//ul//li[1]//a[@class='p-cards__link p-cards__detail-link']");
 
     public final static By ITEM_NOT_WHOLESALE_NOT_DISCOUNT_TR =By.xpath("//div//ul//li//a[@href='/product/03d113d1-ffa2-4cf0-ab5b-28efc06800eb?skuId=981664']");
 public final static By SAVED_SETTINGS = By.xpath("//div//button[@class='button button--s-small button--c-primary button--m-r-10']");
@@ -93,15 +89,17 @@ public final static By AMOUNT_ITEMS_IN_STOCK = By.xpath("//span[@class='product-
 public final static By INFO_ALERT_YOU_DONT_HAVE_ADDRESS = By.xpath("//div[@class='alert__text']");
 public final static By ALL_CATEGORIES = By.xpath("//div//a[@class='nav__categories-header-link']");
 public final static By MODAL_WRAP_SIGN_IN = By.xpath("//div[@class='modal__content-wrap']");
-public final static By INPUT_AMOUNT_ITEMS_IN_STOCK = By.xpath("//input[@class='btn__counter-text']");
-public final static By INFO_ALERT_YOR_ORDER_TOO_MUCH = By.xpath("//div[@class='alert__text']");
-public final static By DOLLAR_USD =By.xpath("//span[contains(text(),'USD')]");
-public final static By LOCALIZATION = By.xpath("//a//span[@class='header__top-i18n-toggler']");
-public final static By SIGN_DOLLAR_$_IN_PRICE =By.xpath("//div[@class=\"product-d__price-sub-wrap\"]//span//span[contains(text(),'$')]");
-public final static By WALLPAPERS_BORDER = By.xpath("//li//a[@href=\"/ua/categories/wallpaper-borders-26940\"]");
-public final static By ITEM_LIRA = By.xpath("//div//div//ul//li//a[@href]//div[@class='p-cards__img-wrap']");
-public final static By ICON_BUTTON_ORDERS = By.xpath("//li//span[contains(text(),'Замовлення')]");
-public final static By INFO_SHOP_CART = By.xpath("//div[@class='shop__cart']");
+    public final static By INPUT_AMOUNT_ITEMS_IN_STOCK = By.xpath("//input[@class='btn__counter-text']");
+    public final static By INFO_ALERT_YOR_ORDER_TOO_MUCH = By.xpath("//div[@class='alert__text']");
+    public final static By DOLLAR_USD =By.xpath("//span[contains(text(),'USD')]");
+    public final static By LOCALIZATION = By.xpath("//a//span[@class='header__top-i18n-toggler']");
+    public final static By SIGN_DOLLAR_$_IN_PRICE =By.xpath("//div[@class=\"product-d__price-sub-wrap\"]//span//span[contains(text(),'$')]");
+    public final static By WALLPAPERS_BORDER = By.xpath("//li//a[@href=\"/ua/categories/wallpaper-borders-26940\"]");
+    public final static By ITEM_LIRA = By.xpath("//div//div//ul//li//a[@href]//div[@class='p-cards__img-wrap']");
+    public final static By ICON_BUTTON_ORDERS = By.xpath("//li//span[contains(text(),'Замовлення')]");
+    public final static By INFO_SHOP_CART = By.xpath("//div[@class='shop__cart']");
+
+
 
 
 

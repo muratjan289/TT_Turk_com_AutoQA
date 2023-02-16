@@ -28,7 +28,7 @@ public class Orders {
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
         //Goto guru99 site
-        driver.get("https://k8s-staging.tt-turk.com/ua");
+        driver.get("https://staging.tt-turk.com/ua");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.findElement(SAVED_SETTINGS).click();
@@ -142,7 +142,7 @@ public class Orders {
         driver.findElement(ICON_BUTTON_ORDERS).click();
         driver.findElement(BUTTON_THE_NEXT_PAGE_ORDERS).click();
         String secondPage = driver.getCurrentUrl();
-        String secondPage1 = "https://k8s-staging.tt-turk.com/ua/orders?status=&page=2";
+        String secondPage1 = "https://staging.tt-turk.com/ua/orders?status=&page=2";
         Assert.assertEquals(secondPage1, secondPage);
         driver.findElement(ORDER_LIST);
         driver.findElement(ORDER_ITEM);
@@ -156,11 +156,11 @@ public class Orders {
         driver.findElement(ICON_BUTTON_ORDERS).click();
         driver.findElement(BUTTON_THE_NEXT_PAGE_ORDERS).click();
         String secondPage = driver.getCurrentUrl();
-        String secondPage1 = "https://k8s-staging.tt-turk.com/ua/orders?status=&page=2";
+        String secondPage1 = "https://staging.tt-turk.com/ua/orders?status=&page=2";
         Assert.assertEquals(secondPage1, secondPage);
         driver.findElement(BUTTON_PAID_ORDERED).click();
         String FirstPage = driver.getCurrentUrl();
-        String FirstPage1 = "https://k8s-staging.tt-turk.com/ua/orders?status=PAID&page=1";
+        String FirstPage1 = "https://staging.tt-turk.com/ua/orders?status=PAID&page=1";
         Assert.assertEquals(FirstPage,FirstPage1);
         waitElementIsVisible(driver.findElement(ORDER_ITEM));
         int countOrder = (int) driver.findElements(ORDER_ITEM).stream().count();

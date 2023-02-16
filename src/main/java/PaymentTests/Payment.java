@@ -1,6 +1,7 @@
 package PaymentTests;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -28,15 +29,14 @@ public class Payment {
         options.addArguments("--incognito");
         driver = new ChromeDriver(options);
         //Goto guru99 site
-        driver.get("https://k8s-staging.tt-turk.com/ua");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get("https://staging.tt-turk.com/ua");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
 
     }
     @AfterMethod
     public void CloseDriver(){
-        driver.close();
-
+//        driver.close();
     }
 
 
@@ -49,11 +49,16 @@ public class Payment {
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
         driver.findElement(PASSWORD_INPUT).sendKeys("goblin27");
         driver.findElement(BUTTON_SIGN_IN_TT_TURK).click();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+
+        for (int i = 4; i > 0; i--) {
+
+            Thread.sleep(1000);
+        }
         driver.findElement(ALL_CATEGORIES).click();
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
-       waitElementIsVisible( driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT)).click();
+
+      driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
         driver.findElement(BUTTON_ADD_TO_CART).click();
         WebElement element = driver.findElement( By.xpath("//span[@class='product-d__counter-left']"));
         String OldCount = element.getText();
@@ -78,53 +83,52 @@ public class Payment {
         driver.findElement(BUTTON_MONTH_ON_CARD).click();
         driver.findElement(BUTTON_YEAR_ON_CARD).click();
         driver.findElement(INPUT_CVC_CODE).sendKeys("000");
+        System.out.println("код ввел все хорошо");
         driver.findElement(BUTTON_SUBMIT_CARD).click();
-        System.out.println("ДО ПРОЦЕССА ОПЛАТЫ ТЕСТ ДОШЕЛ УЖЕ ЖИТЬ ЛЕГЧЕ");
-        try {
+        System.out.println(" BUTTON_SUBMIT_CARD хорошо");
+        driver.findElement(BUTTON_CAMPANYA_1).click();
 
-            for (int i = 3; i > 0; i--) {
-
-                Thread.sleep(1000);
-            }driver.findElement(BUTTON_CAMPANYA_1).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_CAMPANYA_1 не нашелся");
-        }
+        System.out.println("BUTTON_CAMPANYA_1 хорошо");
 
         try {
-
-            for (int i = 3; i > 0; i--) {
-
-                Thread.sleep(1000);
-            } driver.findElement(BUTTON_SUBMIT_CARD).click();
-        }catch (NoSuchElementException e){
-            System.out.println("BUTTON_SUBMIT_CARD не нашелся");
-        }
-
-        try {
-            for (int i = 3; i > 0; i--) {
-
-                Thread.sleep(1000);
-            }
-           waitElementIsVisible(driver.findElement(BUTTON_YES_ACCEPT_PAY));
-           driver.findElement(BUTTON_YES_ACCEPT_PAY).click();
+            driver.findElement(BUTTON_SUBMIT_CARD).click();
+            System.out.println("submit card ok");
         }
         catch (NoSuchElementException e) {
-            System.out.println("No such BUTTON_YES ");
+            System.out.println(" НЕ ПОЛУЧИЛАСЬ  ПЕРВАЯ ПОПЫТКА ");
         }
+        System.out.println("BUTTON_SUBMIT_CARD-2 хорошо");
+        for (int i = 4; i > 0; i--) {
+
+            Thread.sleep(1000);
+        }
+        driver.findElement(BUTTON_YES_ACCEPT_PAY).click();
+        System.out.println("BUTTON_YES_ACCEPT_PAY хорошо");
         for (int i = 12; i > 0; i--) {
 
             Thread.sleep(1000);
         }
-
-
+        try {
             driver.findElement(INFO_YOUR_ORDER_SUCCESS);
             System.out.println("ВАША ПОКУПКА ОПЛАЧЕНА ПОЗДРАВЛЯЕМ");
-        driver.navigate().to("https://k8s-staging.tt-turk.com/ua");
-            driver.findElement(ALL_CATEGORIES).click();
-
-            driver.findElement(CATEGORY_PAINTING).click();
-            driver.findElement(CATEGORY_WALLPAPERS).click();
-            driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
+        }
+        catch (NoSuchElementException e) {
+            System.out.println(" НЕ ПОЛУЧИЛАСЬ  ПЕРВАЯ ПОПЫТКА ");
+        }
+        try {
+            driver.findElement(INFO_YOUR_ORDER_UNSUCCESSFUL);
+            System.out.println("ПРОИЗОШЛА ОШИБКА ПРИ ОПЛАТЕ");
+        }
+        catch (NoSuchElementException e) {
+            System.out.println(" ПОКУПКА СКОРЕЕ ВСЕГО ПОЛУЧИЛАСЬ ");
+        }
+        driver.navigate().to("https://staging.tt-turk.com/ua/product/03d113d1-ffa2-4cf0-ab5b-28efc06800eb?skuId=981664");
+//            driver.findElement(ALL_CATEGORIES).click();
+//
+//            driver.findElement(CATEGORY_PAINTING).click();
+//            driver.findElement(CATEGORY_WALLPAPERS).click();
+//            driver.findElement(SORT_PRICE_ASCENDING_UA).click();
+//            driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
 
 
         WebElement element2 = driver.findElement( By.xpath("//span[@class='product-d__counter-left']"));
@@ -138,6 +142,7 @@ public class Payment {
         }else {
             System.out.println("БЕДА ребят  у нас проблемы товар со склада не списался");
         }
+        Assert.assertNotEquals(gg,gg0);
     }
     @Test
     public void goBackFromThePaymantPage() throws InterruptedException {
@@ -147,7 +152,15 @@ public class Payment {
         driver.findElement(LOGIN_INPUT).sendKeys("muratkhalilov289@gmail.com");
         driver.findElement(PASSWORD_INPUT).sendKeys("goblin27");
         driver.findElement(BUTTON_SIGN_IN_TT_TURK).click();
-        driver.findElement(CATEGORY_HOME_IMPROVEMENT).click();
+        for (int i = 2; i > 0; i--) {
+            Thread.sleep(1000);
+        }
+//        driver.findElement(ALL_CATEGORIES).click();
+        driver.navigate().to("https://staging.tt-turk.com/ua/categories");
+        for (int i = 3; i > 0; i--) {
+            Thread.sleep(1000);
+        }
+
         driver.findElement(CATEGORY_PAINTING).click();
         driver.findElement(CATEGORY_WALLPAPERS).click();
         driver.findElement(ITEM_NOT_WHOLESALE_NOT_DISCOUNT).click();
@@ -239,7 +252,7 @@ public class Payment {
     public void ToBuyItemsInLiraAndDollar(){
         driver.findElement(LOCALIZATION).click();
         driver.findElement(DOLLAR_USD);
-        driver.navigate().to("https://k8s-staging.tt-turk.com/ua/product/de11a273-2ea7-4546-8a43-cc89686a4b88?skuId=1060701");
+        driver.navigate().to("https://staging.tt-turk.com/ua/product/de11a273-2ea7-4546-8a43-cc89686a4b88?skuId=1060701");
         driver.findElement(SIGN_DOLLAR_$_IN_PRICE);
         driver.findElement(BUTTON_ADD_TO_CART).click();
         driver.findElement(MAIN_LOGO).click();
